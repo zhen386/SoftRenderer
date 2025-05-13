@@ -33,8 +33,7 @@ Eigen::Matrix4f get_model_matrix(float rotation_angle)
     // Create the model matrix for rotating the triangle around the Z axis.
     // Then return it.
     Eigen::Matrix4f rotate;
-    float pi = std::acos(-1);
-    float rotation_angle_in_radians = rotation_angle * pi / 180;
+    float rotation_angle_in_radians = rotation_angle * MY_PI / 180;
     rotate << std::cos(rotation_angle_in_radians), -std::sin(rotation_angle_in_radians), 0, 0,
               std::sin(rotation_angle_in_radians), std::cos(rotation_angle_in_radians), 0, 0,
               0, 0, 1, 0,
@@ -56,9 +55,9 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
     // Then return it.
 
     float half_fov_in_radians = eye_fov / 2 * std::acos(-1) / 180;
-    float yTop = zNear * tan(half_fov_in_radians);
+    float yTop = -zNear * tan(half_fov_in_radians);
     float yBottom = -yTop;
-    float xLeft = yTop * aspect_ratio;
+    float xLeft = -yTop * aspect_ratio;
     float xRight = -xLeft;
 
     Eigen::Matrix4f perspective, translate, scale;

@@ -17,7 +17,21 @@
 int main(int argc, const char** argv)
 {
 
+    // cv测试
+    // cv::Mat image(480, 640, CV_8UC3, cv::Scalar(100, 0, 0)); // 蓝色背景
+    // cv::rectangle(image, cv::Point(100, 100), cv::Point(200, 200), cv::Scalar(0, 0, 255), -1); // 红色矩形
+    //
+    // // 检查图像数据
+    // std::cout << "图像尺寸: " << image.size() << std::endl;
+    //
+    // // 显示图像
+    // cv::namedWindow("Window", cv::WINDOW_NORMAL);
+    // cv::imshow("Window", image);
+    // cv::waitKey(0);
+    // return 0;
 
+
+    // draw_triangle_colored(argc, argv);
     if (argc < 2) {
         std::cerr << "too few arguments" << std::endl;
         return 1;
@@ -26,8 +40,11 @@ int main(int argc, const char** argv)
     if (argc > 5) {
         std::cerr << "too many arguments" << std::endl;
     }
-    if (std::string(argv[1]) == std::string("Triangle")) {
-        draw_triangle(argc, argv);
+    if (std::string(argv[1]) == std::string("wireframe")) {
+        draw_triangle_wireframe(argc, argv);
+        return 0;
+    } else if (std::string(argv[1]) == std::string("color")) {
+        draw_triangle_colored(argc, argv);
         return 0;
     }
 
