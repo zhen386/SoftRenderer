@@ -3,15 +3,15 @@
 #include "../RTRenderer/BVH.hpp"
 #include "../RTRenderer/Intersection.hpp"
 #include "Material.hpp"
-#include "OBJ_Loader.hpp"
-#include "Object.hpp"
+#include "OBJ_Loader.h"
+// #include "Object.hpp"
 #include "Triangle.hpp"
 #include <cassert>
 #include <array>
 #include <Eigen>
 
 
-bool rayTriangleIntersect(const MyVector::Vector3f& v0, const MyVector::Vector3f& v1,
+static bool rayTriangleIntersect(const MyVector::Vector3f& v0, const MyVector::Vector3f& v1,
                           const MyVector::Vector3f& v2, const MyVector::Vector3f& orig,
                           const MyVector::Vector3f& dir, float& tnear, float& u, float& v)
 {

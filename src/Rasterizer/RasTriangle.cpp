@@ -14,9 +14,10 @@
 using namespace Eigen;
 RasTriangle::RasTriangle()
 {
-    v[0] << 0, 0, 0;
-    v[1] << 0, 0, 0;
-    v[2] << 0, 0, 0;
+
+    v[0] << 0,0,0,1;
+    v[1] << 0,0,0,1;
+    v[2] << 0,0,0,1;
 
     color[0] << 0.0, 0.0, 0.0;
     color[1] << 0.0, 0.0, 0.0;
@@ -27,7 +28,9 @@ RasTriangle::RasTriangle()
     tex_coords[2] << 0.0, 0.0;
 }
 
-void RasTriangle::setVertex(int ind, Eigen::Vector3f ver) { v[ind] = ver; }
+void RasTriangle::setVertex(int ind, Eigen::Vector4f ver) { v[ind] = ver; }
+
+// void RasTriangle::setVertex(int ind, Eigen::Vector4f ver){ v_obj[ind] = ver; }
 
 void RasTriangle::setNormal(int ind, Vector3f n) { normal[ind] = n; }
 
@@ -41,9 +44,9 @@ void RasTriangle::setColor(int ind, float r, float g, float b)
     color[ind] = Vector3f((float)r / 255., (float)g / 255., (float)b / 255.);
     return;
 }
-void RasTriangle::setTexCoord(int ind, float s, float t)
-{
-    tex_coords[ind] = Vector2f(s, t);
+
+void RasTriangle::setTexCoord(int ind, Vector2f uv) {
+    tex_coords[ind] = uv;
 }
 
 std::array<Vector4f, 3> RasTriangle::toVector4() const

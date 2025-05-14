@@ -16,6 +16,18 @@ AD键调整方向
 
 SSAA抗锯齿
 
+## Assignment3: Texture/Mapping
+
+`./SoftRenderer obj texture`
+
+`./SoftRenderer obj bump`
+
+`./SoftRenderer obj normal`
+
+`./SoftRenderer obj phong`
+
+`./SoftRenderer obj displacement`
+
 ## Assignment7: Cornell-Box Path Tracing
 
 `./SoftRenderer`

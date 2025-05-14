@@ -5,6 +5,7 @@
 
 #undef M_PI
 #define M_PI 3.141592653589793f
+#define TWO_PI (2.0* MY_PI)
 
 extern const float  EPSILON;
 const float kInfinity = std::numeric_limits<float>::max();

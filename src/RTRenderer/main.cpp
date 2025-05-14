@@ -4,7 +4,7 @@
 #include "../frame/Vector.hpp"
 #include "../frame/global.hpp"
 #include <chrono>
-#include "../Rasterizer/DrawTriangle.hpp"
+#include "../Rasterizer/DrawTriangle.cpp"
 #include "../frame/Material.hpp"
 #include "../frame/Scene.hpp"
 
@@ -45,6 +45,9 @@ int main(int argc, const char** argv)
         return 0;
     } else if (std::string(argv[1]) == std::string("color")) {
         draw_triangle_colored(argc, argv);
+        return 0;
+    } else if (std::string(argv[1]) == std::string("obj")) {
+        draw_obj(argc, argv);
         return 0;
     }
 

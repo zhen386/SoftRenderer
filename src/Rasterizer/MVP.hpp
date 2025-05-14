@@ -10,7 +10,7 @@
 
 constexpr double MY_PI = 3.1415926;
 
-Eigen::Matrix4f get_view_matrix(Eigen::Vector3f eye_pos)
+static Eigen::Matrix4f get_view_matrix(Eigen::Vector3f eye_pos)
 {
     Eigen::Matrix4f view = Eigen::Matrix4f::Identity();
 
@@ -25,7 +25,7 @@ Eigen::Matrix4f get_view_matrix(Eigen::Vector3f eye_pos)
     return view;
 }
 
-Eigen::Matrix4f get_model_matrix(float rotation_angle)
+static Eigen::Matrix4f get_model_matrix(float rotation_angle)
 {
     Eigen::Matrix4f model = Eigen::Matrix4f::Identity();
 
@@ -43,7 +43,7 @@ Eigen::Matrix4f get_model_matrix(float rotation_angle)
     return model;
 }
 
-Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
+static Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
                                       float zNear, float zFar)
 {
     // Students will implement this function
@@ -81,7 +81,7 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
     return projection;
 }
 
-Eigen::Matrix4f get_rotation(Eigen::Vector3f axis, float angle) {
+static Eigen::Matrix4f get_rotation(Eigen::Vector3f axis, float angle) {
     Eigen::Matrix4f rotation = Eigen::Matrix4f::Identity();
     Eigen::Matrix3f rotation3 = Eigen::Matrix3f::Identity();
     float angle_in_radians = angle * std::acos(-1) / 180;
